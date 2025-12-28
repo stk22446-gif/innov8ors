@@ -75,38 +75,60 @@ const teamMembers: TeamMember[] = [
   {
     id: "member-4",
     name: "Nidhi Verma",
-    role: "",
-    image: "/team/erica.jpeg",
-    bio: "Soibam Erica Chanu serves as the Coordinator of Innov8ors and plays a vital role in managing day-to-day activities and ensuring smooth coordination within the community. She acts as a bridge between the leadership team and members, supporting event planning, communication, and execution.",
-    skills: ["Community Lead","Growth Coordinator","Event Planner"],
+    role: "Community Lead ",
+    image: "/team/nidhi.jpg",
+    bio: " Nidhi Verma is the Community Lead at innov8ors, dedicated to connecting members and driving engagement. With expertise in program development and moderation,they've successfully launched initiatives that increased active participation by events. ",
+    skills: ["Community Lead","Team Builder","Event Coodinator"],
     social: {
-      linkedin: "https://www.linkedin.com/in/erica-soibam-6b0595382/",
-      instagram: "https://www.instagram.com/lun_essence__/",
+      linkedin: "https://www.linkedin.com/in/nidhi-verma-725a79387/",
+      instagram: "https://www.instagram.com/nidhi.verma_01/",
       mail: ""
     }
   }
 ];
 
 const communityImages = [
-    { id: "img-1", src: "/images/achievement1 (2).jpeg" },
-    { id: "img-2", src: "/images/achivement (3).jpeg" },
-    { id: "img-3", src: "/images/achivement1 (1).jpeg" },
-    { id: "img-4", src: "/images/cambridge.jpeg" },
+    { id: "img-1", src: "/team/Moulya.jpeg", name: "Moulya", role: "Community Member" },
+    { id: "img-2", src: "/team/shighdha.jpg", name: "Shighdha", role: "Designer" },
+    { id: "img-3", src: "/team/akash.jpg", name: "Akash", role: "Developer" },
   ];
 
 const interns: Intern[] = [
   
   {
-    id: "intern-5",
+    id: "intern-1",
     name: "Cambridge Institute of Technology",
     designation: "Click to explore",
     image: "/images/cambridge.jpeg",
     social: {
     }
   },
+   {
+    id: "intern-2",
+    name: "Roorkee Institute of Technology",
+    designation: "Click to explore",
+    image: "/images/rit.png",
+    social: {
+    }
+  },
+  {
+    id: "intern-3",
+    name: "Channabasaveshwara Institute of Technology",
+    designation: "Click to explore",
+    image: "/images/cit.jpg",
+    social: {
+    }
+  },
+  {
+    id: "intern-4",
+    name: "Haridwar University",
+    designation: "Click to explore",
+    image: "/images/hu.png",
+    social: {
+    }
+  },
   
   
- 
 ];
 
 export default function TeamPage() {
@@ -435,12 +457,22 @@ export default function TeamPage() {
                 >
                   <Image
                     src={image.src}
-                    alt={`Community image ${index + 1}`}
+                    alt={image.name || `Community image ${index + 1}`}
                     width={400}
                     height={400}
                     className="object-contain w-full h-full transform group-hover:scale-105 transition-transform duration-300"
                   />
+
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+
+                  <div className="absolute inset-0 flex items-end justify-center p-4 pointer-events-none">
+                    <div className="opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 pointer-events-auto">
+                      <div className="bg-black/60 text-white px-3 py-2 rounded-md text-center">
+                        <p className="font-semibold text-sm">{image.name}</p>
+                        <p className="text-xs text-red-400 mt-1">{image.role}</p>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
