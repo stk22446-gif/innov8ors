@@ -1,11 +1,15 @@
 'use client';
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import Navbar from "../components/Navbar";
+import GlassNavbar from "../components/GlassNavbar";
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import Link from "next/link";
 import Image from "next/image";
 import { IoMailOutline } from "react-icons/io5";
+import dynamic from 'next/dynamic';
+
+// Dynamic import for 3D Scene (client-side only)
+const PageScene = dynamic(() => import('../components/PageScene'), { ssr: false });
 interface TeamMember {
   id: string;
   name: string;
@@ -145,8 +149,9 @@ export default function TeamPage() {
 
   return (
     <div className="relative w-full bg-transparent min-h-screen">
+      <PageScene />
       {/* Hero Section */}
-      <Navbar />
+      <GlassNavbar />
       {/* <section className="relative w-full bg-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[linear-gradient(rgba(239,68,68,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(239,68,68,0.3)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
@@ -219,7 +224,7 @@ export default function TeamPage() {
                 Experts
               </span>
             </h2>
-            <p className="text-black text-lg max-w-2xl mx-auto leading-relaxed">
+<p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
               A passionate team of innovators dedicated to pushing the boundaries of technology, creativity, and purposeful design.
             </p>
           </motion.div>
@@ -233,7 +238,7 @@ export default function TeamPage() {
                 transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
                 className="group relative"
               >
-                <div className="relative bg-gradient-to-b from-zinc-900/90 to-white/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-zinc-800/50 hover:border-red-500/50 transition-all duration-500">
+<div className="relative bg-gradient-to-b from-zinc-900/90 to-zinc-800/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-zinc-800/50 hover:border-red-500/50 transition-all duration-500">
                   <div className="h-1 bg-gradient-to-r from-red-600 via-red-500 to-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                   
                   <div className="p-6 sm:p-8">
@@ -375,7 +380,7 @@ export default function TeamPage() {
                 society
               </span>
             </h2>
-            <p className="text-black text-lg max-w-2xl mx-auto leading-relaxed">
+<p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed">
               Talented interns bringing fresh perspectives and energy to our team
             </p>
           </motion.div>

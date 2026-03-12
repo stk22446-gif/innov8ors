@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/Navbar';
+import GlassNavbar from '../components/GlassNavbar';
 import { motion } from 'framer-motion';
 import TextPressure from '../components/TextPressure';
 
@@ -32,7 +32,7 @@ export default function Events() {
     if (!mounted) {
         return (
             <div className="min-h-screen bg-transparent text-white relative overflow-hidden">
-                <Navbar />
+                <GlassNavbar />
                 <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6">
                     <div className="text-center max-w-4xl mx-auto">
                         <div className="text-5xl md:text-7xl font-bold mb-4 text-white">
@@ -46,7 +46,7 @@ export default function Events() {
     
     return (
         <div className="min-h-screen bg-transparent text-white relative overflow-hidden">
-            <Navbar />
+            <GlassNavbar />
             
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">

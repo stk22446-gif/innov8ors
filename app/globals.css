@@ -1,11 +1,245 @@
-
-@tailwind utilities;
-
 @import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-/* Add these styles to your globals.css */
+/* Custom Font Faces */
+@font-face {
+  font-family: 'Telegraph';
+  src: url('/fonts/telegraf/Telegraf UltraLight 200.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* CSS Variables */
+:root {
+  --fallback-black: #000000;
+  --fallback-white: #ffffff;
+  --fallback-red-500: #ef4444;
+  --fallback-zinc-700: #3f3f46;
+}
+
+/* Typography Classes */
+.telegraph-content {
+  font-family: 'Telegraph', sans-serif;
+}
+
+.megrim-regular {
+  font-family: "Megrim", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.iceland-regular {
+  font-family: "Iceland", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Global Dark Theme */
+html, body, #__next {
+  min-height: 100%;
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis Scroll Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff4444, #4444ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff6666, #6666ff);
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 68, 68, 0.3);
+  color: #ffffff;
+}
+
+/* Glass Panel Base Style */
+.glass-panel {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #ff4444 50%, #4444ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effects */
+.glow-red {
+  box-shadow: 0 0 30px rgba(255, 68, 68, 0.4);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(68, 68, 255, 0.4);
+}
+
+.glow-purple {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+}
+
+/* Rainbow Effects */
+:root {
+  --rainbow-gradient: linear-gradient(135deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+  --rainbow-glow: 0 0 20px rgba(255,0,0,0.3), 0 0 30px rgba(255,127,0,0.25), 0 0 40px rgba(255,255,0,0.2);
+}
+
+.rainbow-text {
+  background: var(--rainbow-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rainbow-glass {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.rainbow-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: var(--rainbow-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.glow-rainbow {
+  box-shadow: var(--rainbow-glow);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Grid Background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Accessibility - with browser support */
+@supports (-webkit-text-size-adjust: none) or (text-size-adjust: none) {
+  html, body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+/* Prevent text selection on UI elements */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Map iframe style */
+.map-iframe {
+  border: 0;
+}
+
+/* Line clamp fallback */
+.line-clamp-2 {
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+/* Testimonial fade in */
 .testimonial-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
@@ -20,63 +254,68 @@
     transform: translateY(0);
   }
 }
-.telegraph-content {
-  font-family: 'Telegraph', sans-serif;
-}
-.megrim-regular {
-  font-family: "Megrim", system-ui;
-  font-weight: 400;
-  font-style: normal;
-}
-.iceland-regular {
-  font-family: "Iceland", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Telegraph';
-  src: url('/fonts/telegraf/Telegraf UltraLight 200.otf') format('opentype');
-  font-weight: 200;
-  font-style: normal;
-}
 
-/* Global background: orange to gray gradient */
-html, body, #__next {
-  min-height: 100%;
-  background: linear-gradient(180deg, #f97316 0%, #9ca3af 100%);
-}
-
-/* Accessibility / compatibility fallbacks */
-html, body {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-/* Provide standard 'line-clamp' alongside webkit prefixed version for compatibility */
-.line-clamp-2 {
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-}
-
-/* Fallbacks for color-mix generating rules: define common color variables so older browsers have stable values */
-:root {
-  --fallback-black: #000000;
-  --fallback-white: #ffffff;
-  --fallback-red-500: #ef4444;
-  --fallback-zinc-700: #3f3f46;
-}
-
-/* Example generic fallbacks used when color-mix isn't supported. These are conservative and won't affect modern browsers. */
-.bg-color-mix-fallback { background-color: var(--fallback-black); }
-.border-color-mix-fallback { border-color: rgba(0,0,0,0.25); }
-
-/* Grid background used on some pages (moved from inline styles) */
+/* About grid background */
 .about-grid-bg {
   background-image: linear-gradient(#dc2626 1px, transparent 1px), linear-gradient(90deg, #dc2626 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
-/* Map iframe style moved from inline */
-.map-iframe {
-  border: 0;
+/* Color mix fallback */
+.bg-color-mix-fallback { background-color: var(--fallback-black); }
+.border-color-mix-fallback { border-color: rgba(0,0,0,0.25); }
+
+/* Three.js Canvas Fix */
+canvas {
+  display: block;
 }
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+}
+
+@supports (scrollbar-width: none) {
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive typography */
+@layer base {
+  html {
+    font-size: 16px;
+  }
+  
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid rgba(255, 68, 68, 0.5);
+  outline-offset: 2px;
+}
+
+/* Button reset */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+/* Link reset */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
