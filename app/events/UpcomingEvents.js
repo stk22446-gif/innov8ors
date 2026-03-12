@@ -79,11 +79,11 @@ const UpcomingEvents = () => {
                         Upcoming Events
                     </span>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                        Don't Miss Out
+                        Don&apos;t Miss Out
                     </h2>
-                <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         Join our upcoming events and be part of the innovation revolution. 
-                        From hands-on workshops to competitive hackathons, there&apos;s something for everyone.
+                        There&apos;s something for everyone.
                     </p>
                 </motion.div>
 
@@ -126,4 +126,3 @@ const UpcomingEvents = () => {
 };
 
 export default UpcomingEvents;
-

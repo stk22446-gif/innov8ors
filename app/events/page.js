@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import GlassNavbar from '../components/GlassNavbar';
 import HeroSection from './HeroSection';
@@ -35,7 +36,7 @@ function PastEventsGallery() {
                             viewport={{ once: true }}
                             className="aspect-square rounded-xl overflow-hidden"
                         >
-                            <img src={img.src} alt={img.title} className="w-full h-full object-cover" />
+                            <Image src={img.src} alt={img.title} fill className="object-cover" />
                         </motion.div>
                     ))}
                 </div>

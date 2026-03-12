@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const galleryImages = [
@@ -29,7 +30,7 @@ export default function PastEventsGallery() {
                             viewport={{once:true}}
                             className="aspect-square rounded-xl overflow-hidden"
                         >
-                            <img src={img.src} alt={img.title} className="w-full h-full object-cover"/>
+                            <Image src={img.src} alt={img.title} fill className="object-cover"/>
                         </motion.div>
                     ))}
                 </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaCalendar, FaMapMarkerAlt, FaRegClock, FaTicketAlt, FaExternalLinkAlt } from 'react-icons/fa';
@@ -44,11 +45,13 @@ const EventCard = ({
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
                             ) : (
-                                <img
+                                <Image
                                     src={imageUrl}
                                     alt={title}
-                                    className="absolute inset-0 w-full h-full object-cover"
+                                    fill
+                                    className="object-cover"
                                 />
+
                             )}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                             {/* Tags */}

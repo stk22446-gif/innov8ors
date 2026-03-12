@@ -1,6 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
-import { FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaCalendar } from 'react-icons/fa';
 
 const timelineEvents = [
     {
@@ -70,7 +70,7 @@ const EventTimeline = () => {
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                         A year filled with innovation, learning, and groundbreaking events. 
-                        Here's what's coming up in 2025.
+                        Here&apos;s what&apos;s coming up in 2025.
                     </p>
                 </motion.div>
 
